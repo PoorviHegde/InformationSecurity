@@ -1,0 +1,37 @@
+1. SQL Injection prevention
+A general tip to improve against SQL injection would be for Bungle! 
+to use SHA256 to hash instead of MD5 as there have been no reported 
+collisions of SHA256 making it hard to find a string that hashes to
+the desired hash. Another general tip would be to cleanse the input 
+string more. This would mean not allowing or rather filtering 
+characters or collections of characters that evaluate to true. For 
+example , removing ‘=‘. Preventing display of error messages would also
+be helpful as most attackers use error message as a means of attacking
+using brute force. Make sure that error messages are local and if an
+external message has to be displayed, make sure they do not give away
+any information(generic names/titles). For example, do not display 
+messages such as ‘error in MySQL query’. Another tip would be to check if the user-provided input is in the set of safe values or a whitelist and reject the ones that aren't. Finally, regularly updating software patches helps as SQL injection are identified all the time.  Hence,staying up to date is crucial.
+
+
+2. XSS prevention
+A way to prevent XSS attacks is to properly sanitize the user input.
+This could possibly involve encoding the input in such a way that if
+there is some type of script in the input, the site does not execute
+it as a script.  For example, the '<' and '>' characters could be 
+changed to different characters as they are being read in so that 
+the script is not interpreted as a script. 
+Also, Bungle! could force users to use only certain "good" characters, ones which do not cause the input to be a script.  This would be better than keeping track of known "bad" characters, as new characters could be created at any time. 
+
+3. CSRF prevention
+This type of attack could be prevented by checking the origin of 
+the request.  For example, if the attack is hosted on website X,
+and is trying to perform and action on Bungle!, Bungle! should 
+recognize that the request came from a website other than its
+own.  This change would enforce the Same-Origin policy. 
+Also, Bungle! could generate a secure token for each user session
+that is transmitted to the user in a secure manner, and the user
+could store this token on his or her machine.  Whenever the user
+would request something from Bungle!, the user would have to 
+confidentially transmit this key back to Bungle!.  This would be
+different from the scenario in 3.1, as the attacker would not have 
+access to this key.Another defense would be to enforce that cookies are not sent with cross-site requests.
